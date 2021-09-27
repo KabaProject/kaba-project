@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
+import Nav from '../components/nav'
+import Cut from '../components/cut'
+import Footer from '../components/footer'
 
 export default function Home() {
   return (
@@ -16,6 +19,7 @@ export default function Home() {
       {/* HEADER */}
       <header className="header">
         {/* NAV COMPONENT */}
+        <Nav/>
         {/* CONTENT */}
         <section className="header__content">
           <h1 className="header__title">
@@ -35,6 +39,9 @@ export default function Home() {
         </section>
       </header>
     
+      {/* CUT DOWN */}
+      <Cut className="bg-primary"/>
+
       {/* MAIN */}
       <main className="main">
         {/* ABOUT */}
@@ -86,6 +93,10 @@ export default function Home() {
           </section>
 
         </section>
+        
+        {/* CUT UP */}
+        <Cut className="bg-primary" up/>
+
         <section className="portfolio section">
           
           
@@ -114,9 +125,16 @@ export default function Home() {
 
           
         </section>
-         {/* CONTACT SECTION */}
+
+        {/* CONTACT SECTION */}
       </main>
-       {/* FOOTER */}
+
+      {/* CUT DOWN */}
+      <Cut className="bg-primary-light"/>
+       
+      {/* FOOTER */}
+      <Footer/>
+
     </>
   )
 }

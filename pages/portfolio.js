@@ -1,3 +1,7 @@
+import Nav from "../components/nav"
+import Cut from "../components/cut"
+import Footer from "../components/footer"
+
 const Portfolio = () => {
     return(
         <>
@@ -5,6 +9,7 @@ const Portfolio = () => {
             {/* HEADER */}
             <header className="header">
                 {/* NAV COMPONENT */}
+                <Nav/>
                 {/* CONTENT */}
                 <section className="header__content">
                     <div className="header__stack">
@@ -27,6 +32,9 @@ const Portfolio = () => {
                 </section>
             </header>
 
+            {/* CUT UP */}
+            <Cut className="bg-primary" up/>
+
             <main className="main">
                 <section className="projects">
                     <h2 className="projects__title">
@@ -38,7 +46,12 @@ const Portfolio = () => {
                 </section>
                 {/* CONTACT SECTION */}
             </main>
+
+            {/* CUT DOWN */}
+            <Cut className="bg-primary"/>
+
             {/* FOOTER */}
+            <Footer/>
         </>
     )
 }

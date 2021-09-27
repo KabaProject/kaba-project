@@ -1,8 +1,13 @@
+import Footer from "../../components/footer"
+import Nav from "../../components/nav"
+import Cut from "../../components/cut"
+
 const Project = () => {
     return(
         <>
             <header className="header">
                 {/* NAV COMPONENT */}
+                <Nav/>
                 {/* CONTENT */}
                 <section className="header__content">
                     <h1 className="header__title">
@@ -22,6 +27,10 @@ const Project = () => {
                     </div>
                 </section>
             </header>
+            
+            {/* CUT UP */}
+            <Cut className="bg-primary" up/>
+            
             <main className="main">
                 <section className="gallery" arial-label="Image Gallery">
                     <div className="gallery__mask">
@@ -36,7 +45,12 @@ const Project = () => {
                 </section>
                 {/* CONTACT SECTION */}
             </main>
+
+            {/* CUT DOWN */}
+            <Cut className="bg-primary"/>
+           
             {/* FOOTER */}
+            <Footer/>
         </>
     )
 }
