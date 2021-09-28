@@ -1,0 +1,28 @@
+@import '../partials/colors.scss';
+
+.header{
+  display: flex;
+  justify-content: center;
+  min-height: 680px;
+  height: 100vh;
+  background-color: $primary;
+  
+  &__wrapper{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    grid-template-areas: "Nav Nav Nav" ". Content .";
+    grid-template-rows: 40px 1fr;
+    padding: 24px 0 0 0;
+  }
+
+  &__nav{
+    grid-area: Nav;
+  }
+
+  &__content{
+    grid-area: Content;
+    align-self: center;
+  }
+}

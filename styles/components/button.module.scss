@@ -1,0 +1,12 @@
+@import '../partials/colors.scss';
+
+
+.primary{
+    background-color: $accent;
+}
+
+.secondary{
+    background-color: $white;
+    border: 1px solid $accent;
+    color: $accent;
+}

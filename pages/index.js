@@ -1,9 +1,17 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
-import Nav from '../components/nav'
-import Cut from '../components/cut'
-import Footer from '../components/footer'
+import { 
+  Nav, Cut, Footer, Button, IconLink
+} from '../components'
+
+// ICONS
+import facebookIcon from '@iconify/icons-simple-icons/facebook'
+import linkedinIcon from '@iconify/icons-simple-icons/linkedin'
+import instagramIcon from '@iconify/icons-simple-icons/instagram'
+import githubIcon from '@iconify/icons-simple-icons/github'
+import behanceIcon from '@iconify/icons-simple-icons/behance'
+
+// STYLES
+import styles from '../styles/pages/home.module.scss'
 
 export default function Home() {
   return (
@@ -17,40 +25,66 @@ export default function Home() {
       {/* NAV FLOATING COMPONENT */}
 
       {/* HEADER */}
-      <header className="header">
+      <header className={styles.header}>
         {/* NAV COMPONENT */}
-        <Nav/>
+        <div className={styles.header__wrapper}>
+        <Nav className={styles.header__nav}/>
         {/* CONTENT */}
-        <section className="header__content">
-          <h1 className="header__title">
-            <span className="header__subtitle">
+        <section className={styles.header__content}>
+          <h1 className={[/*styles.header__title,*/ "text-5xl font-bold leading-tight"]}>
+            <span className={[/*styles.header__subtitle,*/ "text-3xl font-normal"]}>
               ¡Soy Mario Hernandez!
             </span>
             <br/> 
-            Desarollo de Frontend y
+            Desarollador de Frontend y
             <br/>
             Backend para Webs
           </h1>
-          <div className="header__buttons">
+          <div className={`${styles.header__buttons} mt-6 flex`}>
             {/* DOWNLOAD CV */}
-            <a href="" className="header__cv button">Descargar CV</a>
+            <Button primary className="mr-6">
+              Descargar CV
+            </Button>
             {/* SOCIAL NETWORKS LINKS */}
+            <div className="header__icons flex gap-5 items-center">
+              <IconLink
+                icon = {facebookIcon}
+                link = {"https://www.facebook.com/mariohdezlife/"}
+              />
+              <IconLink
+                icon = {linkedinIcon}
+                link = {"https://www.linkedin.com/in/mariohdezdev/"}
+              />
+              <IconLink
+                icon = {githubIcon}
+                link = {"https://github.com/KabaProject"}
+              />
+              <IconLink
+                icon = {behanceIcon}
+                link = {"https://www.behance.net/kaba-project"}
+              />
+              <IconLink
+                icon = {instagramIcon}
+                link = {"https://www.instagram.com/mariohdezdev/"}
+              />
+            </div>
           </div>
         </section>
+        </div>
       </header>
     
       {/* CUT DOWN */}
       <Cut className="bg-primary"/>
 
       {/* MAIN */}
-      <main className="main">
+      <main className={styles.main}>
         {/* ABOUT */}
-        <section className="about section">
-          <header className="about__header section__header">
-            <h2 className="about__title section__title">
+        <section className="about">
+          <header className="about__header">
+            <h2 className="about__title">
               Unas cosas sobre mi
             </h2>
-            <p className="about__summary section__summary">
+            <p className="about__summary">
               Tengo 2 años dedicandome al desarrollo frontend y backend, el cual disfruto y continuo buscando nuevas formas de mejorar cada dia. Nacido en CDMX, Mexico y profundo amante de la programación, el diseño y del aprendizaje.
             </p>
           </header>
@@ -97,14 +131,14 @@ export default function Home() {
         {/* CUT UP */}
         <Cut className="bg-primary" up/>
 
-        <section className="portfolio section">
+        <section className="portfolio">
           
           
           <header className="portfolio__header section__header">
-            <h2 className="portfolio__title section__title">
+            <h2 className="portfolio__title">
               Unas cosas sobre mi
             </h2>
-            <p className="portfolio__summary section__summary">
+            <p className="portfolio__summary">
               Tengo 2 años dedicandome al desarrollo frontend y backend, el cual disfruto y continuo buscando nuevas formas de mejorar cada dia. Nacido en CDMX, Mexico y profundo amante de la programación, el diseño y del aprendizaje.
             </p>
           </header>

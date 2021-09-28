@@ -1,19 +1,15 @@
+// VENDOR
+@import './partials/tailwind';
 
+// VARIABLES
 @import './partials/colors';
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+*{
+    color: $white;
+    line-height: 1.3em;
+    box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+a{
+    display: inline-block;
 }

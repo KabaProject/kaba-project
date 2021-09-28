@@ -1,16 +1,24 @@
-const Nav = () => {
+import { Button } from "."
+import styles from '../styles/components/nav.module.scss'
+
+const Nav = ({className}) => {
 
     return(
-        <nav className="nav" aria-label="Main Navbar">
-            <div className="nav__left">
-                <a href="" className="nav__brand">
+        <nav 
+            className={`${styles.container} ${className} flex justify-between items-center`} 
+            aria-label="Main Navbar"
+        >
+            <div className="nav__left flex items-end gap-12">
+                <a href="" className="text-2xl font-medium uppercase">
                     Kaba
                 </a>
-                <a href="" className="nav__link">Sobre Mí</a>
-                <a href="" className="nav__link">Portafolio</a>
+                <a href="" className="text-lg">Sobre Mí</a>
+                <a href="" className="text-lg">Portafolio</a>
             </div>
             <div className="nav__right">
-                <a href="" className="nav__contact button-secondary">Contactame</a>
+                <Button secondary small>
+                    Contáctame
+                </Button>
             </div>
         </nav>
     )
