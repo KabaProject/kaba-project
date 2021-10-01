@@ -1,0 +1,42 @@
+@import '../partials/colors.scss';
+
+.nav{
+    max-width: 1200px;
+    height: 600px;
+
+    &__wrapper{
+        background-color: $primary-dark;
+    }
+
+}
+
+.project{
+    margin: -450px 0 0 0;
+
+}
+
+.gallery{
+    max-width: 1000px;
+    margin-top: -200px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 550px 300px;
+    grid-template-areas: 
+        "First First"
+        "Second Third";
+    
+    & > *:nth-child(1){
+        grid-area: First;
+    }
+    & > *:nth-child(2){
+        grid-area: Second;
+    }
+    & > *:nth-child(3){
+        grid-area: Third;
+    }
+
+    &__wrapper{
+        background-color: $primary;
+    }
+}

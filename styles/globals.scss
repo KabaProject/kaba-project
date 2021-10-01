@@ -4,11 +4,17 @@
 // VARIABLES
 @import './partials/colors';
 
+// BREAKPOINTS
+@import './partials/breakpoints.scss';
+
 // RESPONSIVE
 @import './partials/responsive';
 
 // SHADOWS
 @import './partials/shadows';
+
+// FONTS
+@import './partials/fonts';
 
 *{
     color: $white;

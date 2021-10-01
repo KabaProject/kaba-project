@@ -1,53 +1,71 @@
-import Footer from "../../components/footer"
-import Nav from "../../components/nav"
-import Cut from "../../components/cut"
+import { 
+    Contact, Footer, Nav, Cut, Button
+} from "../../components"
+
+// STYLES
+import styles from '../../styles/pages/project.module.scss'
 
 const Project = () => {
     return(
         <>
-            <header className="header">
+            <header className={`${styles.nav__wrapper} wrapper pt-6`}>
+                <div className={`${styles.nav} w-full`}>
                 {/* NAV COMPONENT */}
                 <Nav/>
-                {/* CONTENT */}
-                <section className="header__content">
-                    <h1 className="header__title">
-                        Nombre del Proyecto
-                    </h1>
-                    <p className="header__categories">
-
-                    </p>
-                    <p className="header__summary">
-                        
-                    </p>
-                    <div className="header__buttons">
-                        {/* RESPOSITORY */}
-                        <a href="" className="header__cv button-secondary">Ver Repositorio</a>
-                        {/* EXECUTE PROJECT */}
-                        <a href="" className="header__cv button">Ejecutar Proyecto</a>
-                    </div>
-                </section>
+                </div>
             </header>
             
-            {/* CUT UP */}
-            <Cut className="bg-primary" up/>
-            
             <main className="main">
-                <section className="gallery" arial-label="Image Gallery">
-                    <div className="gallery__mask">
-                        <img src="" alt="" className="gallery__img" />
-                    </div>
-                    <div className="gallery__mask">
-                        <img src="" alt="" className="gallery__img" />
-                    </div>
-                    <div className="gallery__mask">
-                        <img src="" alt="" className="gallery__img" />
-                    </div>
-                </section>
-                {/* CONTACT SECTION */}
-            </main>
+                
+                <div className="clip-shadow relative z-10">
+                {/* CUT UP */}
+                    <Cut className="bg-primary" up/>
+        
+                    <section className={`${styles.project__wrapper} relative wrapper z-10`}>
+                        <div className={`${styles.project} w-max-sm w-full flex flex-col items-center gap-y-4`}>
+                            <h1 className="text-5xl font-bold uppercase">
+                                Project Name
+                            </h1>
+                            <p className="text-2xl">
+                                Project Type
+                            </p>
+                            <p className="w-8/12 text-center">
+                            Eget mauris quis sit egestas sem blandit sagittis. Urna mauris a ultricies imperdiet at purus varius amet. Id senectus in amet, nibh sit eleifend. Cursus morbi scelerisque eu non in ullamcorper eu. Purus rutrum platea congue adipiscing et porta vel, arcu at.
+                            </p>
+                            <div className="flex gap-x-6 mt-8">
+                                {/* RESPOSITORY */}
+                                <Button secondary>
+                                    Ver Repositorio
+                                </Button>
+                                {/* EXECUTE PROJECT */}
+                                <Button primary>
+                                    Ejecutar Proyecto
+                                </Button>
+                            </div>
+                        </div>
+                    </section>
 
-            {/* CUT DOWN */}
-            <Cut className="bg-primary"/>
+                    {/* GALLERY */}
+                    <section className={`${styles.gallery__wrapper} relative wrapper z-0 pb-20`}>
+                        <section className={`${styles.gallery} gap-4`} arial-label="Image Gallery">
+                            <div className="overflow-hidden flex justify-center items-center h-full">
+                                <img src="https://picsum.photos/1000/550" alt="" className="w-full" />
+                            </div>
+                            <div className="overflow-hidden flex justify-center items-center h-full">
+                                <img src="https://picsum.photos/480/300" alt="" className="w-full" />
+                            </div>
+                            <div className="overflow-hidden flex justify-center items-center h-full">
+                                <img src="https://picsum.photos/480/300" alt="" className="w-full" />
+                            </div>
+                        </section>
+                    </section>
+                    {/* CUT DOWN */}
+                    <Cut className="bg-primary"/>
+
+                </div>
+                {/* CONTACT SECTION */}
+                <Contact/>
+            </main>
            
             {/* FOOTER */}
             <Footer/>
