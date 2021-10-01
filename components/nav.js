@@ -5,7 +5,7 @@ const Nav = ({className}) => {
 
     return(
         <nav 
-            className={`${styles.container} ${className} flex justify-between items-center`} 
+            className={`${styles.container} flex justify-between items-center ${className}`} 
             aria-label="Main Navbar"
         >
             <div className="nav__left flex items-end gap-12">

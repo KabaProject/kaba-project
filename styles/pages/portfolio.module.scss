@@ -1,0 +1,28 @@
+@import '../partials/colors.scss';
+
+.nav{
+    max-width: 1200px;
+    height: 400px;
+
+    &__wrapper{
+        background-color: $primary-dark;
+    }
+
+}
+
+.header{
+    width: 500px;
+    height: 500px;
+    margin: -350px 0 -150px 0;
+}
+
+.projects{
+    &__wrapper{
+        background-color: $primary;
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

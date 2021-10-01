@@ -11,7 +11,7 @@ const Button = ({link, primary, secondary, children, className, small}) => {
             } ${
                 className ?? ''
             } ${
-                small ? 'text-base py-2 px-3' : 'text-xl py-3 px-5'
+                small ? 'text-base py-2 px-3' : 'text-xl py-3 px-8'
             } rounded shadow-lg font-medium`
             }>
                 {children}

@@ -4,6 +4,12 @@
 // VARIABLES
 @import './partials/colors';
 
+// RESPONSIVE
+@import './partials/responsive';
+
+// SHADOWS
+@import './partials/shadows';
+
 *{
     color: $white;
     line-height: 1.3em;

@@ -1,6 +1,8 @@
-const Cut = ({up}) => {
+import styles from '../styles/components/cut.module.scss'
+
+const Cut = ({up, className}) => {
     return (
-        <div className={`cut ${up ? 'cut--up' : null}`}>
+        <div className={`${styles.container} ${up ? styles.up : styles.down} ${className}`}>
         </div>
     )
 }

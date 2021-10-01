@@ -3,6 +3,26 @@ $primary-light: #3C096C;
 $primary-dark: #10002B;
 $black: #0B0B0B;
 $text: #FFFFFF;
-$text-light: #AF9DC0;
+$text-light: #cec1da;
 $white: #FFFFFF;
 $accent: #F72585;
+
+.bg-primary{
+    background-color: $primary; 
+}
+
+.bg-primary-light{
+    background-color: $primary-light;
+}
+
+.bg-primary-dark{
+    background-color: $primary-dark;
+}
+
+.color-text{
+    color: $white;
+}
+
+.color-text-light{
+    color: $text-light;
+}

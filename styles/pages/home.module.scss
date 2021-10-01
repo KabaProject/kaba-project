@@ -3,18 +3,16 @@
 .header{
   display: flex;
   justify-content: center;
-  min-height: 680px;
-  height: 100vh;
+  min-height: 650px;
+  height: 85vh;
   background-color: $primary;
   
   &__wrapper{
-    width: 100%;
     max-width: 1200px;
     display: grid;
     grid-template-columns: 40px 1fr 40px;
     grid-template-areas: "Nav Nav Nav" ". Content .";
     grid-template-rows: 40px 1fr;
-    padding: 24px 0 0 0;
   }
 
   &__nav{
@@ -24,5 +22,74 @@
   &__content{
     grid-area: Content;
     align-self: center;
+  }
+}
+
+.about{
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "Title Summary"
+    "Fields Skills"
+    "Fields Learning";
+
+  &__wrapper{
+    background-color: $primary-dark;
+  }
+
+  &__title{
+    grid-area: Title;
+  }
+
+  &__summary{
+    grid-area: Summary;
+  }
+
+  &__fields{
+    grid-area: Fields;
+  }
+
+  &__skills{
+    grid-area: Skills;
+  }
+
+  &__learning{
+    grid-area: Learning;
+  }
+}
+
+.portfolio{
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "Title Summary"
+    "Projects Projects";
+
+  &__wrapper{
+    background-color: $primary;
+  }
+
+  &__title{
+    grid-area: Title;
+  }
+
+  &__summary{
+    grid-area: Summary;
+  }
+
+  &__projects{
+    grid-area: Projects;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cta{
+  max-width: 1120px;
+  
+  &__wrapper{
+    background-color: $primary-light;
   }
 }

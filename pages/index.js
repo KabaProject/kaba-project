@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { 
-  Nav, Cut, Footer, Button, IconLink
+  Nav, Cut, Footer, Button, IconLink, Skill, Field, ProjectItem, Contact
 } from '../components'
 
 // ICONS
@@ -23,11 +23,11 @@ export default function Home() {
       </Head>
 
       {/* NAV FLOATING COMPONENT */}
-
+      <div className="clip-shadow">
       {/* HEADER */}
       <header className={styles.header}>
         {/* NAV COMPONENT */}
-        <div className={styles.header__wrapper}>
+        <div className={`${styles.header__wrapper} w-full pt-4`}>
         <Nav className={styles.header__nav}/>
         {/* CONTENT */}
         <section className={styles.header__content}>
@@ -75,96 +75,179 @@ export default function Home() {
     
       {/* CUT DOWN */}
       <Cut className="bg-primary"/>
+      </div>
 
       {/* MAIN */}
       <main className={styles.main}>
         {/* ABOUT */}
-        <section className="about">
-          <header className="about__header">
-            <h2 className="about__title">
-              Unas cosas sobre mi
-            </h2>
-            <p className="about__summary">
-              Tengo 2 años dedicandome al desarrollo frontend y backend, el cual disfruto y continuo buscando nuevas formas de mejorar cada dia. Nacido en CDMX, Mexico y profundo amante de la programación, el diseño y del aprendizaje.
-            </p>
-          </header>
+        <section className={`${styles.about__wrapper} wrapper`}>
+          <div className={`${styles.about} w-full py-40 gap-y-9 gap-x-6`}>
+              <h2 className={`${styles.about__title} font-bold text-5xl uppercase`}>
+                Unas cosas sobre mi
+              </h2>
+              <p className={`${styles.about__summary} text-lg self-center color-text-light`}>
+                Tengo 2 años dedicandome al desarrollo frontend y backend, el cual disfruto y continuo buscando nuevas formas de mejorar cada dia. Nacido en CDMX, Mexico y profundo amante de la programación, el diseño y del aprendizaje.
+              </p>
 
-          {/* FIELDS OF WORK */}
-          <section className="about__fields">
-            <h3 className="about__subtitle">
-              Trabajo en...
-            </h3>
+            {/* FIELDS OF WORK */}
+            <section className={`${styles.about__fields}`}>
+              <h3 className="text-3xl font-bold">
+                Trabajo en...
+              </h3>
 
-            {/* FIELD COMPONENTS */}
-            <div className="field">
-              <div className="field__mask">
-                <img src="" alt="" className="field__img" />
-                <p className="field__text"></p>
+              {/* FIELD COMPONENTS */}
+              <div className="flex flex-col gap-y-8 pt-8">
+                <Field>
+                  Web Design & Development
+                </Field>
+                <Field>
+                  Frontend Development
+                </Field>
+                <Field>
+                  Backend Development
+                </Field>
               </div>
-            </div>
-          </section>
-        
-          {/* SKILLS */}
-          <section className="about__skills">
-            <h3 className="about__subtitle">
-              Mis habilidades son...
-            </h3>
-            {/* SKILLS COMPONENTS */}
-            <div className="about__h-list">
+            </section>
+          
+            {/* SKILLS */}
+            <section className={`${styles.about__skills}`}>
+              <h3 className="text-3xl font-bold mb-8">
+                Mis habilidades son...
+              </h3>
+              {/* SKILLS COMPONENTS */}
+              <div className="flex gap-x-6 flex-wrap">
+                <Skill
+                  name="Javascript"
+                  junior
+                  mid
+                />
+                <Skill
+                  name="ReactJS"
+                  junior
+                  mid
+                />
+                <Skill
+                  name="NodeJS"
+                  junior
+                  mid
+                />
+                <Skill
+                  name="MySQL"
+                  junior
+                  mid
+                />
+                <Skill
+                  name="NextJS"
+                  junior
+                  mid
+                />
+                <Skill
+                  name="ExpressJS"
+                  junior
+                  mid
+                />
+              </div>
+            </section>
 
-            </div>
-          </section>
-
-          {/* LEARNING */}
-          <section className="about__learning">
-            <h3 className="about__subtitle">
+            {/* LEARNING */}
+            <section className={`${styles.about__learning}`}>
+            <h3 className="text-3xl font-bold mb-8">
               Estoy aprendiendo...
             </h3>
             {/* SKILLS COMPONENTS */}
-            <div className="about__h-list">
-              
+            <div className="flex gap-x-6 flex-wrap">
+                <Skill
+                  name="Wordpress"
+                  junior
+                />
+                <Skill
+                  name="PHP"
+                  junior
+                />
+                <Skill
+                  name="MongoDB"
+                  junior
+                  mid
+                />
+                <Skill
+                  name="Gatsby"
+                  junior
+                  mid
+                />
+                <Skill
+                  name="HandleBars"
+                  junior
+                  mid
+                />
+              </div>
+          </section>
+          </div>
+        </section>
+        
+        <div className="clip-shadow relative z-10">
+
+          {/* CUT UP */}
+          <Cut className="bg-primary" up/>
+
+          <section className={`${styles.portfolio__wrapper} wrapper`}>
+            <div className={`${styles.portfolio} w-full py-24 gap-y-14 gap-x-6`}>
+              <h2 className={`${styles.portfolio__title} font-bold text-5xl uppercase`}>
+                Este es mi trabajo
+              </h2>
+
+              <p className={`${styles.portfolio__summary} text-lg self-center color-text-light`}>
+                Busco crear soluciones a problemas que me enfrento en mi día a día esperando que pueda ser de ayuda a otras personas. Además de realizar proyectos para aquellos clientes que se vean interesados en desarrollar sus ideas conmigo.
+              </p>
+
+              <section className={`${styles.portfolio__projects} gap-y-4`} aria-label="Projects">
+                {/* PROJECT ITEM COMPONENTS */}
+                <ProjectItem
+                  name = "Project Name"
+                  front
+                />
+                <ProjectItem
+                  name = "Project Name"
+                  front
+                />
+                <ProjectItem
+                  name = "Project Name"
+                  front
+                />
+                <ProjectItem
+                  name = "Project Name"
+                  front
+                />
+                <ProjectItem
+                  name = "Project Name"
+                  front
+                />
+                <ProjectItem
+                  name = "Project Name"
+                  front
+                />
+              </section>
             </div>
           </section>
 
-        </section>
-        
-        {/* CUT UP */}
-        <Cut className="bg-primary" up/>
-
-        <section className="portfolio">
-          
-          
-          <header className="portfolio__header section__header">
-            <h2 className="portfolio__title">
-              Unas cosas sobre mi
-            </h2>
-            <p className="portfolio__summary">
-              Tengo 2 años dedicandome al desarrollo frontend y backend, el cual disfruto y continuo buscando nuevas formas de mejorar cada dia. Nacido en CDMX, Mexico y profundo amante de la programación, el diseño y del aprendizaje.
-            </p>
-          </header>
-
-          <section className="portfolio__projects" aria-label="Projects">
-            {/* PROJECT ITEM COMPONENTS */}
-
+          <section className={`${styles.cta__wrapper} wrapper`}>
+              <div className={`${styles.cta} flex items-center w-full justify-between pt-6 pb-12`}>
+                <h2 className="text-4xl">
+                  <b>¿Te gustó?</b> Nice, te invito a que veas más de ellos
+                </h2>
+                <Button primary>
+                  Ver Portafolio
+                </Button>
+              </div>
           </section>
 
-          <footer className="portfolio__footer">
-            <h3 className="portfolio__text">
-              <b>¿Te gustó?</b> Nice, te invito a que veas más de ellos
-            </h3>
-            <a href="" className="portfolio__see-more button">
-              Ver Portafolio
-            </a>
-          </footer>
+          {/* CUT DOWN */}
+          <Cut className="bg-primary-light"/>
 
-          
-        </section>
+        </div>
 
         {/* CONTACT SECTION */}
+        <Contact/>
       </main>
-
-      {/* CUT DOWN */}
-      <Cut className="bg-primary-light"/>
        
       {/* FOOTER */}
       <Footer/>
