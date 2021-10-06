@@ -1,10 +1,14 @@
-@import '../partials/colors.scss';
+@import '../partials/colors.scss',
+        '../partials/breakpoints.scss';
 
 .nav{
-    max-width: 1200px;
     height: 400px;
 
     &__wrapper{
+        background-color: $primary-dark;
+    }
+
+    &__bg{
         background-color: $primary-dark;
     }
 
@@ -24,5 +28,24 @@
     &__list{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: $mobile-max) {
+    
+    .nav{
+        height: 375px;
+    }
+    
+    .header{
+        width: 300px;
+        height: 300px;
+        margin: -232px 0 -68px 0;
+    }
+
+    .projects{
+        &__list{
+            grid-template-columns: 1fr;
+        }
     }
 }

@@ -1,0 +1,44 @@
+@import '../partials/colors.scss';
+
+.container{
+    width: 40px;
+    height: 40px;
+}
+
+.z_up{
+    z-index: 50;
+}
+
+.top_up{
+    fill: $accent;
+    transform: translateY(-6px);
+    transition: transform 0.3s ease, fill 0.1s ease-in;
+}
+
+.top_down{
+    fill: $white;
+    transform: translateY(0px);
+    transition: transform 0.3s ease, fill 0.35s;
+}
+
+.bottom_up{
+    fill: $white;
+    transform: translateY(0px);
+    transition: transform 0.3s ease, fill 0.35s;
+}
+
+.bottom_down{
+    fill: $accent;
+    transform: translateY(6px);
+    transition: transform 0.3s ease, fill 0.1s ease-in;
+}
+
+.middle{
+    fill: $white;
+    transition: all 0.35s ;
+}
+
+.middle_active{
+    fill: $accent;
+    transition: all 0.1s;
+}

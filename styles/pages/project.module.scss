@@ -1,7 +1,7 @@
 @import '../partials/colors.scss';
+@import '../partials/breakpoints.scss';
 
 .nav{
-    max-width: 1200px;
     height: 600px;
 
     &__wrapper{
@@ -38,5 +38,43 @@
 
     &__wrapper{
         background-color: $primary;
+    }
+}
+
+@media screen and (max-width: $mobile-max) {
+    .nav{
+        height: 550px;
+    }
+    
+    .project{
+        margin: -400px 0 0 0;
+    
+    }
+
+    .gallery{
+        max-width: 400px;
+        margin-top: 50px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "First" "Second" "Third";
+        
+        & > *{
+            height: 300px;
+        }
+
+        & > *:nth-child(1){
+            grid-area: First;
+        }
+        & > *:nth-child(2){
+            grid-area: Second;
+        }
+        & > *:nth-child(3){
+            grid-area: Third;
+        }
+    
+        &__wrapper{
+            background-color: $primary;
+        }
     }
 }

@@ -1,13 +1,16 @@
-@import '../partials/colors.scss';
+@import '../partials/colors',
+        '../partials/breakpoints';
 
 .wrapper{
     background-color: $primary-dark;
 }
 
-.container{
-    max-width: 1120px;
-}
-
 .image{
     width: 500px;
+}
+
+@media screen and (max-width: $mobile-max) {
+    .image{
+        width: 280px;
+    }
 }

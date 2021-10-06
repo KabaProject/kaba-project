@@ -4,16 +4,16 @@ import Link from 'next/link'
 const Footer = () => {
     return(
         <footer className={`${styles.wrapper} wrapper`}>
-            <div className={`${styles.container} flex justify-between items-center w-full py-4`}>
+            <div className={`${styles.container} w-max-lg lg:flex lg:justify-between items-center w-full py-6 lg:py-4 px-4 lg:px-0 gap-y-6 lg:gap-y-2`}>
                 <Link href="/">
-                    <a className="text-xl font-medium">
+                    <a className={`${styles.brand} text-xl font-medium`}>
                         KABA                
                     </a>
                 </Link>
-                <p className="copyright">
+                <p className={`${styles.copy}`}>
                     Diseñado y Desarrollado por Mario Hdez
                 </p>
-                <div className="languages flex gap-x-2 uppercase">
+                <div className={`${styles.lang} flex gap-x-2 uppercase`}>
                     <a href="" className="language">
                         English
                     </a>

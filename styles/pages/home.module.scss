@@ -1,4 +1,5 @@
-@import '../partials/colors.scss';
+@import '../partials/colors.scss',
+        '../partials/breakpoints.scss';
 
 .header{
   display: flex;
@@ -60,7 +61,6 @@
 }
 
 .portfolio{
-  max-width: 1120px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
@@ -91,5 +91,47 @@
   
   &__wrapper{
     background-color: $primary-light;
+  }
+}
+
+@media screen and (max-width: $mobile-max) {
+  .header{
+    min-height: 700px;
+    height: 90vh;
+    
+    &__wrapper{
+      max-width: 400px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: "Nav" "Content";
+    }
+  
+    &__nav{
+      grid-area: Nav;
+    }
+  
+    &__content{
+      grid-area: Content;
+      align-self: end;
+    }
+  }
+
+  .about{
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "Title" "Summary" "Fields" "Skills" "Learning";
+  }
+
+  .portfolio{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "Title" "Summary" "Projects";
+  
+    &__projects{
+      grid-template-columns: 1fr;
+    }
   }
 }

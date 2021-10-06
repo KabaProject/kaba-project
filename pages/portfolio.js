@@ -1,5 +1,5 @@
 import { 
-    Contact, Nav, Cut, Footer, Button, IconLink, ProjectBlock
+    Contact, Nav, Cut, Footer, Button, IconLink, ProjectBlock, NavFixed
 } from "../components"
 
 // STYLES
@@ -16,11 +16,12 @@ const Portfolio = () => {
     return(
         <>
             {/* NAV FLOATING COMPONENT */}
+            <NavFixed className={`${styles.nav__bg}`}/>
             {/* HEADER */}
-            <header className={`${styles.nav__wrapper} wrapper pt-6`}>
-                <div className={`${styles.nav} w-full`}>
+            <header className={`${styles.nav__wrapper} wrapper pt-6 px-4 lg:px-0`}>
+                <div className={`${styles.nav} w-max-lg w-full`}>
                 {/* NAV COMPONENT */}
-                <Nav/>
+                <Nav className={`${styles.nav__bg}`}/>
                 </div>
             </header>
 
@@ -39,8 +40,11 @@ const Portfolio = () => {
                             <img src="/Portfolio.svg" alt="" className="w-full" />
                         </div>
                         <div className="absolute top-0 left-0 right-0 flex flex-col justify-center items-center h-full">
-                            <h1 className="uppercase text-9xl font-bold mt-20 text-shadow-2xl">
+                            <h1 className="uppercase text-9xl font-bold mt-20 text-shadow-2xl hidden lg:block">
                                 Portafolio
+                            </h1>
+                            <h1 className="uppercase text-7xl font-bold -mt-16 text-shadow-2xl text-center block lg:hidden">
+                                Porta- <br /> folio
                             </h1>
                             <Button primary className="mt-8">
                                 Descargar CV
@@ -72,12 +76,12 @@ const Portfolio = () => {
                     </div>
                 </section>
 
-                <section className={`${styles.projects__wrapper} wrapper pt-64 pb-20`}>
+                <section className={`${styles.projects__wrapper} wrapper pt-40 lg:pt-64 pb-10`}>
                     <div className="w-full w-max-sm flex flex-col items-center gap-y-6">
-                        <h2 className="text-5xl font-bold">
+                        <h2 className="text-4xl lg:text-5xl font-bold">
                             Desarrollo Web
                         </h2>
-                        <div className={`${styles.projects__list} gap-4 mt-12`}>
+                        <div className={`${styles.projects__list} gap-4 mt-6 lg:mt-12 px-4 lg:px-0`}>
                             {/* PROJECT ITEM COMPONENTS */}
                             <ProjectBlock
                                 name="Project Name"
@@ -94,12 +98,12 @@ const Portfolio = () => {
                         </div>
                     </div>
                 </section>
-                <section className={`${styles.projects__wrapper} wrapper py-20`}>
+                <section className={`${styles.projects__wrapper} wrapper py-10`}>
                     <div className="w-full w-max-sm flex flex-col items-center gap-y-6">
-                        <h2 className="text-5xl font-bold">
-                            Desarrollo Frontend
+                        <h2 className="text-4xl lg:text-5xl font-bold">
+                            Desarrollo Web
                         </h2>
-                        <div className={`${styles.projects__list} gap-4 mt-12`}>
+                        <div className={`${styles.projects__list} gap-4 mt-6 lg:mt-12 px-4 lg:px-0`}>
                             {/* PROJECT ITEM COMPONENTS */}
                             <ProjectBlock
                                 name="Project Name"
@@ -116,12 +120,12 @@ const Portfolio = () => {
                         </div>
                     </div>
                 </section>
-                <section className={`${styles.projects__wrapper} wrapper pt-20 pb-40`}>
+                <section className={`${styles.projects__wrapper} wrapper pt-10 pb-20`}>
                     <div className="w-full w-max-sm flex flex-col items-center gap-y-6">
-                        <h2 className="text-5xl font-bold">
-                            Desarrollo Backend
+                        <h2 className="text-4xl lg:text-5xl font-bold">
+                            Desarrollo Web
                         </h2>
-                        <div className={`${styles.projects__list} gap-4 mt-12`}>
+                        <div className={`${styles.projects__list} gap-4 mt-6 lg:mt-12 px-4 lg:px-0`}>
                             {/* PROJECT ITEM COMPONENTS */}
                             <ProjectBlock
                                 name="Project Name"

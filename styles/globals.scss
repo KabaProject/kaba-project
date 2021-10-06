@@ -22,6 +22,14 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: $primary;
+}
+
 a{
     display: inline-block;
+}
+
+.lock{
+    overflow: hidden;
 }
