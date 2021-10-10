@@ -14,7 +14,7 @@ const Project = () => {
             <header className={`${styles.nav__wrapper} wrapper pt-6`}>
                 <div className={`${styles.nav} px-4 lg:px-0 w-max-lg w-full`}>
                 {/* NAV COMPONENT */}
-                <Nav/>
+                <Nav className="relative z-20"/>
                 </div>
             </header>
             

@@ -21,7 +21,7 @@ const Portfolio = () => {
             <header className={`${styles.nav__wrapper} wrapper pt-6 px-4 lg:px-0`}>
                 <div className={`${styles.nav} w-max-lg w-full`}>
                 {/* NAV COMPONENT */}
-                <Nav className={`${styles.nav__bg}`}/>
+                <Nav className={`${styles.nav__bg} relative z-20`}/>
                 </div>
             </header>
 
