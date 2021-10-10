@@ -29,7 +29,7 @@ const Contact = () => {
                 </h3>
 
                 <a href="" className="text-2xl lg:text-3xl mt-4">
-                    > kabaproject@outlook.es
+                &gt; kabaproject@outlook.es
                 </a>
 
                 <h3 className="text-2xl lg:text-3xl font-medium mt-6">
