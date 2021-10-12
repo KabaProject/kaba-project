@@ -1,5 +1,6 @@
 import { Button, MenuButton, Menu, Shadow } from "."
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import styles from '../styles/components/nav.module.scss'
 
 const Nav = ({className}) => {
@@ -32,15 +33,22 @@ const Nav = ({className}) => {
             <Menu className="z-10" isOpen = {isOpen} onClick = {onClickHandler}/>
 
             <div className="nav__left flex items-end gap-12">
-                <a href="" className="text-3xl lg:text-2xl font-medium uppercase">
-                    Kaba
-                </a>
-                <a href="" className="text-lg hidden lg:block">Sobre Mí</a>
-                <a href="" className="text-lg hidden lg:block">Portafolio</a>
+                <Link href="/">                
+                    <a className="text-3xl lg:text-2xl font-medium uppercase">
+                        Kaba
+                    </a>
+                </Link>
+                <Link href="/#about">
+                    <a className="text-lg hidden lg:block">Sobre Mí</a>
+                </Link>
+                <Link href="/portfolio">
+                    <a className="text-lg hidden lg:block">Portafolio</a>
+                </Link>
             </div>
 
             <div className="nav__right">
-                <Button 
+                <Button
+                link="/#contact" 
                 className="hidden lg:block"
                 secondary small
                 >
