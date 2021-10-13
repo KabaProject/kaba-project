@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import prisma from '../prisma/prisma'
 import { 
   Nav, Cut, Footer, Button, IconLink, Skill, Field, ProjectItem, Contact, NavFixed
 } from '../components'
@@ -24,7 +25,7 @@ import handlebarsdotjsIcon from '@iconify/icons-simple-icons/handlebarsdotjs'
 // STYLES
 import styles from '../styles/pages/home.module.scss'
 
-export default function Home() {
+export default function Home({projects}) {
 
   return (
     <>
@@ -227,30 +228,19 @@ export default function Home() {
 
               <section className={`${styles.portfolio__projects} gap-y-4`} aria-label="Projects">
                 {/* PROJECT ITEM COMPONENTS */}
-                <ProjectItem
-                  name = "Project Name"
-                  front
-                />
-                <ProjectItem
-                  name = "Project Name"
-                  front
-                />
-                <ProjectItem
-                  name = "Project Name"
-                  front
-                />
-                <ProjectItem
-                  name = "Project Name"
-                  front
-                />
-                <ProjectItem
-                  name = "Project Name"
-                  front
-                />
-                <ProjectItem
-                  name = "Project Name"
-                  front
-                />
+                
+                {
+                  projects.map( project => {
+                    return(
+                      <ProjectItem
+                        link = {`/projects/${project.id}`}
+                        name = {project.name}
+                        {...project.types}
+                      />
+                    )
+                  })
+                }
+                
               </section>
             </div>
           </section>
@@ -280,4 +270,35 @@ export default function Home() {
 
     </>
   )
+}
+
+export const getStaticProps = async () => {
+    const projects = await prisma.projects.findMany({
+      select:{
+        id: true,
+        name: true,
+        types:{
+          select: {
+            name: true,
+          }
+        }
+      }
+    })
+
+    const getTypes = (name) => ({
+      front: (name === 'frontend'),
+      back: (name === 'backend'),
+      web: (name === 'web'),
+      design: (name === 'design'),
+    })
+
+    projects.forEach((project, index) => {
+      projects[index].types = getTypes(project.types.name)
+    })
+
+    return {
+      props: {
+        projects
+      }
+    }
 }

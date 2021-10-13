@@ -1,6 +1,7 @@
 import { 
     Contact, Nav, Cut, Footer, Button, IconLink, ProjectBlock, NavFixed
 } from "../components"
+import prisma from "../prisma/prisma"
 
 // STYLES
 import styles from '../styles/pages/portfolio.module.scss'
@@ -12,7 +13,35 @@ import instagramIcon from '@iconify/icons-simple-icons/instagram'
 import githubIcon from '@iconify/icons-simple-icons/github'
 import behanceIcon from '@iconify/icons-simple-icons/behance'
 
-const Portfolio = () => {
+const ProjectsByType = ({ className, title, projects }) => {
+
+    if(projects.length <= 0) return null
+
+    console.log(projects)
+
+    return(
+        <section className={`${styles.projects__wrapper} wrapper ${className}`}>
+            <div className="w-full w-max-sm flex flex-col items-center gap-y-6">
+                <h2 className="text-4xl lg:text-5xl font-bold capitalize">
+                    { title }
+                </h2>
+                <div className={`${styles.projects__list} gap-4 mt-6 lg:mt-12 px-4 lg:px-0`}>  
+                    {
+                        projects.map( project => (
+                            <ProjectBlock
+                                key={ project.id }
+                                name={ project.name }
+                                link={ `/projects/${project.id}` }
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    )
+}
+
+const Portfolio = ({ projects }) => {
     return(
         <>
             {/* NAV FLOATING COMPONENT */}
@@ -76,72 +105,26 @@ const Portfolio = () => {
                     </div>
                 </section>
 
-                <section className={`${styles.projects__wrapper} wrapper pt-40 lg:pt-64 pb-10`}>
-                    <div className="w-full w-max-sm flex flex-col items-center gap-y-6">
-                        <h2 className="text-4xl lg:text-5xl font-bold">
-                            Desarrollo Web
-                        </h2>
-                        <div className={`${styles.projects__list} gap-4 mt-6 lg:mt-12 px-4 lg:px-0`}>
-                            {/* PROJECT ITEM COMPONENTS */}
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                        </div>
-                    </div>
-                </section>
-                <section className={`${styles.projects__wrapper} wrapper py-10`}>
-                    <div className="w-full w-max-sm flex flex-col items-center gap-y-6">
-                        <h2 className="text-4xl lg:text-5xl font-bold">
-                            Desarrollo Web
-                        </h2>
-                        <div className={`${styles.projects__list} gap-4 mt-6 lg:mt-12 px-4 lg:px-0`}>
-                            {/* PROJECT ITEM COMPONENTS */}
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                        </div>
-                    </div>
-                </section>
-                <section className={`${styles.projects__wrapper} wrapper pt-10 pb-20`}>
-                    <div className="w-full w-max-sm flex flex-col items-center gap-y-6">
-                        <h2 className="text-4xl lg:text-5xl font-bold">
-                            Desarrollo Web
-                        </h2>
-                        <div className={`${styles.projects__list} gap-4 mt-6 lg:mt-12 px-4 lg:px-0`}>
-                            {/* PROJECT ITEM COMPONENTS */}
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                            <ProjectBlock
-                                name="Project Name"
-                            />
-                        </div>
-                    </div>
-                </section>
+                {/* <ProjectsByType 
+                    className="pt-40 lg:pt-64 pb-10"
+                    projects = {projects.web}
+                />
+
+                <ProjectsByType 
+                    className="py-10"
+                    projects = {projects.front}
+                />
+
+                <ProjectsByType 
+                    className="pt-10 pb-20"
+                    projects = {projects.back}
+                /> */}
+                
+                <ProjectsByType 
+                    className="pt-40 lg:pt-64 pb-40"
+                    projects = {projects.design}
+                    title = 'Diseños Web'
+                />
                 
                 {/* CUT DOWN */}
                 <Cut className="bg-primary"/>
@@ -158,4 +141,31 @@ const Portfolio = () => {
         </>
     )
 }
+
+export const getStaticProps = async () => {
+
+    const rows = await prisma.projects.findMany({
+        select:{
+            id: true,
+            name: true,
+            type_id: true,
+            link: true
+        }
+    })
+
+    const projects = {
+        front: rows.filter(project => project.type_id === 1),
+        back: rows.filter(project => project.type_id === 2),
+        web: rows.filter(project => project.type_id === 3),
+        design: rows.filter(project => project.type_id === 4)
+    }
+
+    return {
+        props: {
+            projects
+        } 
+    }
+
+}
+
 export default Portfolio
