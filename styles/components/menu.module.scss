@@ -1,0 +1,23 @@
+@import '../partials/colors.scss';
+
+.container{
+    background-color: $white;
+}
+
+.title{
+    color: $black;
+}
+
+.links{
+    color: $primary;
+}
+
+.up{
+    transform: translateY(-320px);
+    transition: transform 0.8s ease;
+}
+
+.down{
+    transform: translateY(0px);
+    transition: transform 0.8s ease;
+}

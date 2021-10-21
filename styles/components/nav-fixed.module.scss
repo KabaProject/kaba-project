@@ -1,0 +1,15 @@
+@import '../partials/colors.scss';
+
+.wrapper{
+    background-color: $primary;
+}
+
+.show{
+    transform: translateY(0px);
+    transition: all 1s ease;
+}
+
+.hide{
+    transform: translateY(-80px);
+    transition: all 1s ease;
+}

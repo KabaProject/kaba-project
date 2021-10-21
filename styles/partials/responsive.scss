@@ -1,0 +1,21 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+.w-max{
+    &-sm{
+        max-width: 1120px;
+    }
+
+    &-lg{
+        max-width: 1200px;
+    }
+}
+
+@media screen and (max-width: $mobile-max) {
+    .w-max{
+        &-sm, &-lg{
+            max-width: 400px;
+        }
+    }
+}

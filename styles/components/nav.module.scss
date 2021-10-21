@@ -1,0 +1,7 @@
+@import '../partials/colors.scss';
+
+.active{
+    & > *{
+        color: $accent;
+    }
+}

@@ -33,5 +33,8 @@ yarn-error.log*
 # vercel
 .vercel
 
-# dabatase
+# prisma
+.env
+
+# database
 database/*.db

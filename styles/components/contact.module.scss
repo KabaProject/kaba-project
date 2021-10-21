@@ -1,0 +1,16 @@
+@import '../partials/colors',
+        '../partials/breakpoints';
+
+.wrapper{
+    background-color: $primary-dark;
+}
+
+.image{
+    width: 500px;
+}
+
+@media screen and (max-width: $mobile-max) {
+    .image{
+        width: 280px;
+    }
+}

@@ -1,0 +1,26 @@
+@import '../partials/colors.scss',
+        '../partials/breakpoints.scss';
+
+.wrapper{
+    background-color: $black;
+}
+
+@media screen and (max-width: $mobile-max) {
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "Brand Language" "Copy Copy";
+    }
+
+    .brand{
+        grid-area: Brand;
+    }
+
+    .lang{
+        grid-area: Language;
+    }
+
+    .copy{
+        grid-area: Copy;
+    }
+}
