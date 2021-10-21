@@ -17,8 +17,6 @@ const ProjectsByType = ({ className, title, projects }) => {
 
     if(projects.length <= 0) return null
 
-    console.log(projects)
-
     return(
         <section className={`${styles.projects__wrapper} wrapper ${className}`}>
             <div className="w-full w-max-sm flex flex-col items-center gap-y-6">

@@ -233,6 +233,7 @@ export default function Home({projects}) {
                   projects.map( project => {
                     return(
                       <ProjectItem
+                        key = {project.id}
                         link = {`/projects/${project.id}`}
                         name = {project.name}
                         {...project.types}
