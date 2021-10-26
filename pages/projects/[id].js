@@ -46,7 +46,7 @@ const Project = ({ data }) => {
                 {/* TWITTER TAGS */}
                 <meta name="twitter:title" content={ `${data.name} - KABA's Project` }/>
                 <meta name="twitter:description" content={`${data.description ? data.description.slice(0, 200) : "No hay descripción"}...`}/>
-                <meta name="twitter:image" content=" /cover.png"/>
+                <meta name="twitter:image" content="/cover.png"/>
                 <meta name="twitter:site" content="@MarioHdezDev"/>
                 <meta name="twitter:creator" content="@MarioHdezDev"/>
             </Head>

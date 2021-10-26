@@ -62,7 +62,7 @@ export default function Home({projects}) {
         {/* TWITTER TAGS */}
         <meta name="twitter:title" content=" Mario Hdez - Desarrollador Web"/>
         <meta name="twitter:description" content=" Conoce un poco sobre mi y a lo que me dedico en el mundo de la programacion web, si tienes una idea yo puedo ser quien te ayude a desarrollarla"/>
-        <meta name="twitter:image" content=" /cover.png"/>
+        <meta name="twitter:image" content="/cover.png"/>
         <meta name="twitter:site" content="@MarioHdezDev"/>
         <meta name="twitter:creator" content="@MarioHdezDev"/>
       </Head>
