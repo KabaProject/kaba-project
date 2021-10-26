@@ -47,7 +47,7 @@ const Portfolio = ({ projects }) => {
             {/* HEAD */}
             <Head>
                 <meta charSet="utf-8"/>
-                <title>Todos mis trabajos - KABA's Portfolio</title>
+                <title>Todos mis trabajos - KABA&apos;s Portfolio</title>
                 <meta name="description" content="Te invito a ver mi trabajo hecho a travez de mi carrera como desarrollador web y alguna que otra cosita que se me hizo interesante de mostrar, espero que lo disfrutes" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
