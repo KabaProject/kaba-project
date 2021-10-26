@@ -60,6 +60,7 @@ export default function Home({projects}) {
         <meta property="og:site_name" content="KABA PROJECT" />
 
         {/* TWITTER TAGS */}
+        <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:title" content=" Mario Hdez - Desarrollador Web"/>
         <meta name="twitter:description" content=" Conoce un poco sobre mi y a lo que me dedico en el mundo de la programacion web, si tienes una idea yo puedo ser quien te ayude a desarrollarla"/>
         <meta name="twitter:image" content="/cover.png"/>

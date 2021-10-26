@@ -44,6 +44,7 @@ const Project = ({ data }) => {
                 <meta property="og:site_name" content="KABA PROJECT" />
 
                 {/* TWITTER TAGS */}
+                <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:title" content={ `${data.name} - KABA's Project` }/>
                 <meta name="twitter:description" content={`${data.description ? data.description.slice(0, 200) : "No hay descripción"}...`}/>
                 <meta name="twitter:image" content="/cover.png"/>

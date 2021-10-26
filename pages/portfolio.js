@@ -76,6 +76,7 @@ const Portfolio = ({ projects }) => {
                 <meta property="og:site_name" content="KABA PROJECT" />
 
                 {/* TWITTER TAGS */}
+                <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:title" content=" Todos mis trabajos - KABA PORTFOLIO"/>
                 <meta name="twitter:description" content="Te invito a ver mi trabajo hecho a travez de mi carrera como desarrollador web y alguna que otra cosita que se me hizo interesante de mostrar, espero que lo disfrutes"/>
                 <meta name="twitter:image" content="/cover.png"/>
