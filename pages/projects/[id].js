@@ -47,7 +47,7 @@ const Project = ({ data }) => {
                 <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:title" content={ `${data.name} - KABA's Project` }/>
                 <meta name="twitter:description" content={`${data.description ? data.description.slice(0, 200) : "No hay descripción"}...`}/>
-                <meta name="twitter:image" content="/cover.png"/>
+                <meta name="twitter:image" content="https://kaba-project.vercel.app/cover.png"/>
                 <meta name="twitter:site" content="@MarioHdezDev"/>
                 <meta name="twitter:creator" content="@MarioHdezDev"/>
             </Head>
