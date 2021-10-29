@@ -10,8 +10,6 @@ import styles from '../../styles/pages/project.module.scss'
 
 const Project = ({ project }) => {
 
-    console.log(project)
-
     return(
         <>
             {/* HEAD */}
