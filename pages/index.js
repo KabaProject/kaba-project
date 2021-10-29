@@ -91,7 +91,11 @@ export default function Home({projects}) {
           </h1>
           <div className={`${styles.header__buttons} mt-6 flex flex-wrap`}>
             {/* DOWNLOAD CV */}
-            <Button primary className="lg:mr-6">
+            <Button 
+              link = {"/docs/my-cv-mario-hdez.pdf"}
+              primary 
+              className="lg:mr-6"
+            >
               Descargar CV
             </Button>
             {/* SOCIAL NETWORKS LINKS */}

@@ -116,7 +116,11 @@ const Portfolio = ({ sections }) => {
                             <h1 className="uppercase text-7xl font-bold -mt-16 text-shadow-2xl text-center block lg:hidden">
                                 Porta- <br /> folio
                             </h1>
-                            <Button primary className="mt-8">
+                            <Button 
+                                link = {"/docs/my-cv-mario-hdez.pdf"}
+                                primary 
+                                className="mt-8"
+                            >
                                 Descargar CV
                             </Button>
                             <div className="flex gap-x-4 mt-4">
