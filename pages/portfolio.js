@@ -32,6 +32,7 @@ const ProjectsByType = ({ className, title, projects }) => {
                                 key={ project.id }
                                 name={ project.name }
                                 link={ `/projects/${project.id}` }
+                                image={ project.cover ? `/shots/${project.cover}` : null }
                             />
                         ))
                     }
@@ -41,7 +42,7 @@ const ProjectsByType = ({ className, title, projects }) => {
     )
 }
 
-const Portfolio = ({ projects }) => {
+const Portfolio = ({ sections }) => {
     return(
         <>
             {/* HEAD */}
@@ -162,7 +163,7 @@ const Portfolio = ({ projects }) => {
                 
                 <ProjectsByType 
                     className="pt-40 lg:pt-64 pb-40"
-                    projects = {projects.design}
+                    projects = {sections.design}
                     title = 'Diseños Web'
                 />
                 
@@ -184,7 +185,7 @@ const Portfolio = ({ projects }) => {
 
 export const getStaticProps = async () => {
 
-    const rows = await prisma.projects.findMany({
+    const projects = await prisma.projects.findMany({
         select:{
             id: true,
             name: true,
@@ -193,16 +194,30 @@ export const getStaticProps = async () => {
         }
     })
 
-    const projects = {
-        front: rows.filter(project => project.type_id === 1),
-        back: rows.filter(project => project.type_id === 2),
-        web: rows.filter(project => project.type_id === 3),
-        design: rows.filter(project => project.type_id === 4)
+    for(const project of projects){
+        const cover = await prisma.gallery.findFirst({
+              where:{
+                project_id: project.id,
+                is_cover: 1
+              },
+              select:{
+                file: true
+              }
+        })
+
+        project.cover = cover ? cover.file : null    
+    }
+
+    const sections = {
+        front: projects.filter(project => project.type_id === 1),
+        back: projects.filter(project => project.type_id === 2),
+        web: projects.filter(project => project.type_id === 3),
+        design: projects.filter(project => project.type_id === 4)
     }
 
     return {
         props: {
-            projects
+            sections
         } 
     }
 

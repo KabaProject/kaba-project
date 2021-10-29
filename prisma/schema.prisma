@@ -8,19 +8,22 @@ datasource db {
 }
 
 model gallery {
-  id         Int    @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   file       String
+  is_cover   Int?     @default(0)
   project_id String
+  projects   projects @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model projects {
-  id          String  @id
+  id          String    @id
   name        String
   description String?
   repo        String?
   link        String?
   type_id     Int
-  types       types   @relation(fields: [type_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  types       types     @relation(fields: [type_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  gallery     gallery[]
 }
 
 model types {

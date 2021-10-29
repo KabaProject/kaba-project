@@ -269,6 +269,7 @@ export default function Home({projects}) {
                         key = {project.id}
                         link = {`/projects/${project.id}`}
                         name = {project.name}
+                        image = {project.cover ? `/shots/${project.cover}` : null}
                         {...project.types}
                       />
                     )
@@ -326,9 +327,22 @@ export const getStaticProps = async () => {
       design: (name === 'design'),
     })
 
-    projects.forEach((project, index) => {
-      projects[index].types = getTypes(project.types.name)
-    })
+    for(const project of projects){
+      const types = getTypes(project.types.name)
+      const cover = await prisma.gallery.findFirst({
+            where:{
+              project_id: project.id,
+              is_cover: 1
+            },
+            select:{
+              file: true
+            }
+      })
+
+      project.types = types
+      project.cover = cover ? cover.file : null
+    }
+
 
     return {
       props: {

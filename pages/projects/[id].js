@@ -8,15 +8,17 @@ import prisma from '../../prisma/prisma'
 // STYLES
 import styles from '../../styles/pages/project.module.scss'
 
-const Project = ({ data }) => {
+const Project = ({ project }) => {
+
+    console.log(project)
 
     return(
         <>
             {/* HEAD */}
             <Head>
                 <meta charSet="utf-8"/>
-                <title>{ `${data.name} - KABA's Project` }</title>
-                <meta name="description" content={`${data.description ? data.description.slice(0, 50) : "No hay descripción"}...`} />
+                <title>{ `${project.name} - KABA's Project` }</title>
+                <meta name="description" content={`${project.description ? project.description.slice(0, 50) : "No hay descripción"}...`} />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
                 {/* Favicon */}
@@ -35,8 +37,8 @@ const Project = ({ data }) => {
 
                 {/* OPEN GRAPH TAGS */} 
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content={ `${data.name} - KABA's Project` } />
-                <meta property="og:description" content={`${data.description ? data.description.slice(0, 200) : "No hay descripción"}...`} />
+                <meta property="og:title" content={ `${project.name} - KABA's Project` } />
+                <meta property="og:description" content={`${project.description ? project.description.slice(0, 200) : "No hay descripción"}...`} />
                 <meta property="og:image" content="/cover.png" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
@@ -45,8 +47,8 @@ const Project = ({ data }) => {
 
                 {/* TWITTER TAGS */}
                 <meta name="twitter:card" content="summary_large_image"/>
-                <meta name="twitter:title" content={ `${data.name} - KABA's Project` }/>
-                <meta name="twitter:description" content={`${data.description ? data.description.slice(0, 200) : "No hay descripción"}...`}/>
+                <meta name="twitter:title" content={ `${project.name} - KABA's Project` }/>
+                <meta name="twitter:description" content={`${project.description ? project.description.slice(0, 200) : "No hay descripción"}...`}/>
                 <meta name="twitter:image" content="https://kaba-project.vercel.app/cover.png"/>
                 <meta name="twitter:site" content="@MarioHdezDev"/>
                 <meta name="twitter:creator" content="@MarioHdezDev"/>
@@ -71,30 +73,36 @@ const Project = ({ data }) => {
                     <section className={`${styles.project__wrapper} relative wrapper z-10`}>
                         <div className={`${styles.project} w-max-sm w-full flex flex-col items-center gap-y-4 px-4 lg:px-0`}>
                             <h1 className="text-3xl lg:text-5xl text-center font-bold uppercase">
-                                {data.name}
+                                {project.name}
                             </h1>
                             <p className="text-2xl capitalize">
                                 - {
-                                    data.type === 'web' ? 'Web Development' :
-                                    data.type === 'fronted' ? 'Frontend Development':
-                                    data.type === 'backend' ? 'Backend Development':
-                                                            'Web Design'
+                                    project.types.web ? 'Web Development' :
+                                    project.types.front ? 'Frontend Development':
+                                    project.types.back ? 'Backend Development':
+                                    project.types.design ? 'Web Design': 'No Definido'                        
                                 } -
                             </p>
                             <p className="text-lg lg:w-8/12 text-center">
                             {
-                                data.description ?? 'No hay descripción'
+                                project.description ?? 'No hay descripción'
                             }
                             </p>
                             <div className="flex gap-x-4 lg:gap-x-6 mt-8 lg:px-0">
-                                {/* RESPOSITORY */}
-                                <Button className="w-1/2 lg:w-auto" link={data.repo ?? '#'} secondary>
-                                    Ver Repositorio
-                                </Button>
-                                {/* EXECUTE PROJECT */}
-                                <Button className="w-1/2 lg:w-auto" link={data.link ?? '#'} primary>
-                                    Ejecutar Proyecto
-                                </Button>
+                                {/* RESPOSITORY */
+                                    project.repo ?
+                                    <Button className="w-1/2 lg:w-auto" link={project.repo} secondary>
+                                        Ver Repositorio
+                                    </Button> : null
+                                }
+                                
+                                {/* EXECUTE PROJECT */
+                                    project.link ? 
+                                    <Button className="w-1/2 lg:w-auto" link={project.link} primary>
+                                        Ejecutar Proyecto
+                                    </Button> : null
+                                }
+                                
                             </div>
                         </div>
                     </section>
@@ -102,15 +110,15 @@ const Project = ({ data }) => {
                     {/* GALLERY */}
                     <section className={`${styles.gallery__wrapper} relative wrapper z-0 pb-20`}>
                         <div className={`${styles.gallery} px-4 lg:px-0 gap-6 lg:gap-4`} arial-label="Image Gallery">
-                            <div className="overflow-hidden flex justify-center items-center">
-                                <img src="https://picsum.photos/1000/550" alt="" className="object-cover h-full lg:width" />
-                            </div>
-                            <div className="overflow-hidden flex justify-center items-center h-full">
-                                <img src="https://picsum.photos/480/300" alt="" className="object-cover h-full lg:width" />
-                            </div>
-                            <div className="overflow-hidden flex justify-center items-center h-full">
-                                <img src="https://picsum.photos/480/300" alt="" className="object-cover h-full lg:width" />
-                            </div>
+                            <img src={project.cover ? `/shots/${project.cover}` : "https://picsum.photos/1000/550" } alt="" className="object-cover h-full w-full" />
+                            {
+                                project.gallery ? 
+                                <img src={project.gallery[0] ? `/shots/${project.gallery[0]}` : "https://picsum.photos/480/300" } alt="" className="object-cover h-full w-full" />: null
+                            }
+                            {
+                                project.gallery ? 
+                                <img src={project.gallery[1] ? `/shots/${project.gallery[1]}` : "https://picsum.photos/480/300" } alt="" className="object-cover h-full w-full" /> : null
+                            }
                         </div>
                     </section>
                     {/* CUT DOWN */}
@@ -171,15 +179,33 @@ export const getStaticProps = async (context) => {
         }
     })
 
+    const getTypes = (name) => ({
+        front: (name === 'frontend'),
+        back: (name === 'backend'),
+        web: (name === 'web'),
+        design: (name === 'design'),
+    })
+
+    const types = getTypes(project.types.name)
+    const gallery = await prisma.gallery.findMany({
+            where:{
+            project_id: project.id
+            },
+            select:{
+            file: true,
+            is_cover: true
+            }
+    })
+
+    project.types = types
+    if(gallery){
+        project.cover = gallery.find(image => image.is_cover).file
+        project.gallery = gallery.filter(image => !image.is_cover).map(image => image.file)
+    }
+
     return{
         props: {
-            data: {
-                name: project.name,
-                description: project.description,
-                repo: project.repo,
-                link: project.link,
-                type: project.types.name
-            }
+            project
         }
     }
 } 
