@@ -24,6 +24,7 @@ const Button = ({link, primary, secondary, children, className, small, internal}
         <a
         href={link ?? '#'}
         target="_blank"
+        rel="noreferrer"
         className={
         `${
             primary ? styles.primary : secondary ? styles.secondary : ''
