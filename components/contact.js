@@ -28,7 +28,7 @@ const Contact = () => {
                     Enviame un mensaje a
                 </h3>
 
-                <a href="" className="text-2xl lg:text-3xl mt-4">
+                <a href="mailto:kabaproject@outlook.es" className="text-2xl lg:text-3xl mt-4">
                 &gt; kabaproject@outlook.es
                 </a>
 

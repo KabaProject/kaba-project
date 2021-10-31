@@ -21,6 +21,7 @@ import phpIcon from '@iconify/icons-simple-icons/php'
 import mongodbIcon from '@iconify/icons-simple-icons/mongodb'
 import gatsbyIcon from '@iconify/icons-simple-icons/gatsby'
 import handlebarsdotjsIcon from '@iconify/icons-simple-icons/handlebarsdotjs'
+import prismaIcon from '@iconify/icons-simple-icons/prisma';
 
 // STYLES
 import styles from '../styles/pages/home.module.scss'
@@ -150,13 +151,13 @@ export default function Home({projects}) {
 
               {/* FIELD COMPONENTS */}
               <div className="flex flex-col gap-y-8">
-                <Field>
+                <Field image="/web.svg">
                   Web Design & Development
                 </Field>
-                <Field>
+                <Field image="/frontend.svg">
                   Frontend Development
                 </Field>
-                <Field>
+                <Field image="/backend.svg">
                   Backend Development
                 </Field>
               </div>
@@ -229,19 +230,21 @@ export default function Home({projects}) {
                   name="MongoDB"
                   icon={mongodbIcon}
                   junior
-                  mid
                 />
                 <Skill
                   name="Gatsby"
                   icon={gatsbyIcon}
                   junior
-                  mid
                 />
                 <Skill
                   name="HandleBars"
                   icon={handlebarsdotjsIcon}
                   junior
-                  mid
+                />
+                <Skill
+                  name="Prisma"
+                  icon={prismaIcon}
+                  junior
                 />
               </div>
           </section>
