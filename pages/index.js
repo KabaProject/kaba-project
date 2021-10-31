@@ -151,13 +151,13 @@ export default function Home({projects}) {
 
               {/* FIELD COMPONENTS */}
               <div className="flex flex-col gap-y-8">
-                <Field image="/web.svg">
+                <Field image="/Web.svg">
                   Web Design & Development
                 </Field>
-                <Field image="/frontend.svg">
+                <Field image="/Frontend.svg">
                   Frontend Development
                 </Field>
-                <Field image="/backend.svg">
+                <Field image="/Backend.svg">
                   Backend Development
                 </Field>
               </div>
